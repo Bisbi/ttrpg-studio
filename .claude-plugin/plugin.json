@@ -1,0 +1,15 @@
+{
+  "name": "ttrpg-studio",
+  "version": "0.1.0",
+  "description": "Worldbuilding e produzione di materiale 5E-compatible: avventure, carte, schermo del master, mappe, arte.",
+  "license": "Apache-2.0",
+  "keywords": ["ttrpg", "5e-compatible", "worldbuilding", "claude-code-plugin"],
+  "mcpServers": {
+    "compendium-reader": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/compendium-reader/index.js"],
+      "env": {}
+    }
+  }
+}

@@ -15,3 +15,6 @@ generated-images/
 
 # Node
 node_modules/
+
+# eccezione: il dataset d'esempio homebrew DEVE essere versionato
+!examples/compendium-homebrew/**
