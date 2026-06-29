@@ -1,0 +1,17 @@
+# Dati di gioco e Setting Bible utente (mai committare)
+/data/
+/setting/
+GAME_DATA_PATH
+
+# Segreti
+.env
+*.key
+
+# Output generati
+*.png
+*.pdf
+output/
+generated-images/
+
+# Node
+node_modules/
