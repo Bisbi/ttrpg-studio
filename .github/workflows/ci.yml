@@ -1,0 +1,24 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Install (compendium-reader)
+        working-directory: mcp/compendium-reader
+        run: npm install
+      - name: Test
+        working-directory: mcp/compendium-reader
+        run: npm test
+      - name: Denylist marchi
+        run: node scripts/check-denylist.mjs
+      - name: Secret scan (gitleaks)
+        if: matrix.os == 'ubuntu-latest'
+        uses: gitleaks/gitleaks-action@v2
+        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
