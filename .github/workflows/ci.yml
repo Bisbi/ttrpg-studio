@@ -35,4 +35,5 @@ jobs:
       - name: Secret scan (gitleaks)
         if: matrix.os == 'ubuntu-latest'
         uses: gitleaks/gitleaks-action@v2
-        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
