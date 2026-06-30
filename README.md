@@ -38,3 +38,17 @@ Crea un'ambientazione e mantienila coerente:
 - `/lore-check` — `lore-keeper` valida la coerenza semantica del canon.
 
 Le utility deterministiche stanno in `lib/` (Node ESM, testate con vitest).
+
+## Avventure (tavolo pronto)
+
+    ADVENTURE_PATH=./adventures   # cartella delle tue avventure
+
+- `/new-adventure "<titolo>"` — crea un'avventura come **struttura dati validata**
+  (≥8 segreti, 3–5 luoghi sensoriali, ≥3 ganci, PNG con voce e segreto).
+- `/encounter 3,3,3,4 hard` — budget XP del party e proposte di incontri dal
+  compendio (soglie 5E-compatible).
+- `/session-prep <slug>` — scheda one-page per il tavolo (vista-DM).
+- `/roll <tabella>` — tira su una random table (seed del plugin o `80-tables/`
+  della Setting Bible).
+
+Gli handout per i giocatori (vista-player) arrivano col modulo di produzione.
