@@ -29,6 +29,11 @@ describe("createRenderer.render", () => {
     expect(calls).toBe(2); // 1 + 1 retry
   });
 
+  it("un launch che non risolve mai scatta il timeout (niente hang)", async () => {
+    const r = createRenderer({ launch: () => new Promise(() => {}) }); // non risolve mai
+    await expect(r.render("<div></div>", { timeoutMs: 20, retries: 0 })).rejects.toThrow(/render fallito/);
+  });
+
   it("formato pdf usa page.pdf", async () => {
     const browser = fakeBrowser(Buffer.from("PNG"));
     const r = createRenderer({ launch: async () => browser });

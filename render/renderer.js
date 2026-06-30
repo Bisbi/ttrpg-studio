@@ -4,11 +4,23 @@ export function createRenderer({ launch } = {}) {
     return chromium.launch(opts);
   });
 
+  async function launchWithTimeout(opts, timeoutMs) {
+    let timer;
+    const timeout = new Promise((_, rej) => {
+      timer = setTimeout(() => rej(new Error("timeout di avvio del browser")), timeoutMs);
+    });
+    try {
+      return await Promise.race([launcher(opts), timeout]);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   async function attempt(html, opts) {
     const { width, height, selector, format, noSandbox, timeoutMs } = opts;
     let browser;
     try {
-      browser = await launcher({ args: noSandbox ? ["--no-sandbox"] : [] });
+      browser = await launchWithTimeout({ args: noSandbox ? ["--no-sandbox"] : [] }, timeoutMs);
       const page = await browser.newPage();
       await page.setViewportSize({ width, height });
       await page.setContent(html, { waitUntil: "load", timeout: timeoutMs });
