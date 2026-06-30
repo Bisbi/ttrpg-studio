@@ -65,3 +65,18 @@ Gli handout per i giocatori (vista-player) arrivano col modulo di produzione.
 Il rendering HTML→PNG/PDF usa **Playwright** (package `render/`). Installa il browser
 una volta con `npx playwright install chromium`. Il layer di composizione HTML sta in
 `lib/` (zero dipendenze, testato); il renderer è isolato in `render/`.
+
+## Visuals (arte e mappe)
+
+Provider arte (configura **uno** dei due):
+
+    IMAGE_API_URL=...   IMAGE_API_KEY=...   # provider API (consigliato)
+    IMAGE_GEN_URL=...                        # browser best-effort (fragile)
+
+- `/gen-art "<descrizione>"` — arte 2:3 per oggetti, mostri, PG, PNG (non mappe).
+  Il provider browser mostra un disclaimer su ToS e licenze al primo uso.
+- `/battle-map [--tier 1|2]` — Tier 1: dungeon procedurale SVG line-art + griglia
+  (deterministico, esporta anche JSON); Tier 2: griglia su un'arte di scena.
+
+Le mappe sono zero-dipendenze (SVG generato in Node, griglia in post); la
+rasterizzazione PNG riusa il renderer Playwright di `render/`.
