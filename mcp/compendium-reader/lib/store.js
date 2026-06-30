@@ -10,6 +10,7 @@ export class CompendiumStore {
     this.logger = logger;
     this.byType = new Map();
     this.mtimes = new Map();
+    this.fileTypes = new Map();
   }
 
   _fileTypeMap() {
@@ -30,6 +31,7 @@ export class CompendiumStore {
     this.byType = new Map();
     this.mtimes = new Map();
     const files = this._fileTypeMap();
+    this.fileTypes = new Map(Object.entries(files));
     for (const [file, type] of Object.entries(files)) {
       const full = resolveWithin(this.dataPath, file);
       this.mtimes.set(file, statSync(full).mtimeMs);
@@ -52,8 +54,17 @@ export class CompendiumStore {
   }
 
   reloadIfStale() {
+    // File aggiunti o rimossi rispetto all'ultimo load().
+    const current = Object.keys(this._fileTypeMap()).sort();
+    const known = [...this.mtimes.keys()].sort();
+    if (current.length !== known.length || current.some((f, i) => f !== known[i])) {
+      this.logger.debug("reload: set di file cambiato");
+      this.load();
+      return true;
+    }
+    // File noti modificati o spariti.
     for (const [file, mtime] of this.mtimes) {
-      const full = join(this.dataPath, file);
+      const full = resolveWithin(this.dataPath, file);
       if (!existsSync(full) || statSync(full).mtimeMs !== mtime) {
         this.logger.debug(`reload: ${file} cambiato`);
         this.load();
@@ -69,5 +80,10 @@ export class CompendiumStore {
 
   allOfType(type) {
     return [...(this.byType.get(type)?.values() ?? [])];
+  }
+
+  // Tipo associato a un file dati (via manifest/mappa di default), o undefined.
+  typeForFile(file) {
+    return this.fileTypes.get(file);
   }
 }

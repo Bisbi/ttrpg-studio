@@ -10,7 +10,7 @@ function decodeCursor(cursor) {
   const n = parseInt(Buffer.from(cursor, "base64").toString("utf8"), 10);
   return Number.isFinite(n) && n >= 0 ? n : 0;
 }
-function project(record, fields) {
+export function project(record, fields) {
   if (!fields || fields.length === 0) return record;
   const out = {};
   for (const f of fields) if (f in record) out[f] = record[f];
@@ -78,10 +78,12 @@ export class CompendiumQuery {
     const total = hits.length;
     const offset = decodeCursor(cursor);
     const pageHits = hits.slice(offset, offset + limit);
-    const results = pageHits.map((h) => {
+    const results = [];
+    for (const h of pageHits) {
       const rec = this.store.allOfType(h.type).find((r) => r.id === h.id);
-      return project(rec, fields);
-    });
+      if (!rec) continue; // indice e store fuori sincrono: salta invece di emettere null
+      results.push(project(rec, fields));
+    }
     const next = offset + limit < total ? encodeCursor(offset + limit) : null;
     return { results, total, cursor: next };
   }

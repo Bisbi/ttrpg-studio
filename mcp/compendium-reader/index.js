@@ -6,7 +6,7 @@ import { pathToFileURL } from "node:url";
 import { validateConfig } from "./lib/config.js";
 import { createLogger } from "./lib/logger.js";
 import { CompendiumStore } from "./lib/store.js";
-import { CompendiumQuery } from "./lib/query.js";
+import { CompendiumQuery, project } from "./lib/query.js";
 import { ToolError, CODES } from "./lib/errors.js";
 
 export function buildServer(env) {
@@ -35,8 +35,16 @@ export function buildServer(env) {
     },
     async read_file({ file, root_key, fields }) {
       refresh();
-      const rows = store.allOfType(file.replace(/\.json$/, "").replace(/s$/, ""));
-      return { results: rows };
+      const type = store.typeForFile(file);
+      if (!type) {
+        throw new ToolError(
+          CODES.NOT_FOUND,
+          `File non riconosciuto: "${file}". File noti: ${[...store.fileTypes.keys()].join(", ")}.`,
+          false
+        );
+      }
+      const rows = store.allOfType(type);
+      return { results: fields ? rows.map((r) => project(r, fields)) : rows };
     },
   };
 
