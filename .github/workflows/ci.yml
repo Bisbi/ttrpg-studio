@@ -16,6 +16,12 @@ jobs:
       - name: Test
         working-directory: mcp/compendium-reader
         run: npm test
+      - name: Install (lib)
+        working-directory: lib
+        run: npm install
+      - name: Test (lib)
+        working-directory: lib
+        run: npm test
       - name: Denylist marchi
         run: node scripts/check-denylist.mjs
       - name: Secret scan (gitleaks)
