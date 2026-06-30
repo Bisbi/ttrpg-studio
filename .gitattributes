@@ -1,0 +1,13 @@
+# Normalizzazione line-ending: i file di testo sono LF nel working tree su
+# ogni piattaforma. Evita che il checkout su Windows produca CRLF, che rompe
+# lo strip dello shebang in esbuild/vitest e farebbe fallire la CI windows.
+* text=auto eol=lf
+
+# Output binari (quando arriveranno): mai normalizzare.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
