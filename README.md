@@ -52,3 +52,16 @@ Le utility deterministiche stanno in `lib/` (Node ESM, testate con vitest).
   della Setting Bible).
 
 Gli handout per i giocatori (vista-player) arrivano col modulo di produzione.
+
+## Produzione (materiale stampabile)
+
+    OUTPUT_DIR=./output   # dove finiscono PNG/PDF generati
+
+- `/item-card` — carta oggetto PNG (800×1200) da una voce `reward_loot`.
+- `/dm-screen [--pdf]` — schermo del master (1920×1080) da un'avventura.
+- `/handout` — handout diegetico per i giocatori (**vista-player**: i campi segreti
+  vengono rimossi automaticamente).
+
+Il rendering HTML→PNG/PDF usa **Playwright** (package `render/`). Installa il browser
+una volta con `npx playwright install chromium`. Il layer di composizione HTML sta in
+`lib/` (zero dipendenze, testato); il renderer è isolato in `render/`.
