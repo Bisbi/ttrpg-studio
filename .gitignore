@@ -4,6 +4,10 @@
 /adventures/
 GAME_DATA_PATH
 
+# Voce personale (mai committare; quella sotto /setting/ è già coperta)
+voice-profile.md
+/voice/
+
 # Segreti
 .env
 *.key

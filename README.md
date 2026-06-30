@@ -80,3 +80,15 @@ Provider arte (configura **uno** dei due):
 
 Le mappe sono zero-dipendenze (SVG generato in Node, griglia in post); la
 rasterizzazione PNG riusa il renderer Playwright di `render/`.
+
+## Voce e stile
+
+Il plugin scrive la prosa creativa in modo **concreto e vivo**, non generico
+(skill `prose-style`). Puoi dargli la **tua voce**:
+
+- `/voice-profile` — crea il tuo profilo voce dai tuoi testi (template guidato).
+- Il file vive in `SETTING_PATH/voice-profile.md` o in `VOICE_PATH`, è **locale e
+  gitignored** (non finisce nel repo). Le skill creative lo applicano se presente.
+
+La guida di stile del plugin è **neutra**: l'obiettivo è una prosa umana e concreta,
+non "eludere i rilevatori AI".
