@@ -1,6 +1,7 @@
-# Dati di gioco e Setting Bible utente (mai committare)
+# Dati di gioco, Setting Bible e avventure utente (mai committare)
 /data/
 /setting/
+/adventures/
 GAME_DATA_PATH
 
 # Segreti
