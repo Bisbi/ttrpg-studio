@@ -22,3 +22,9 @@ La **Setting Bible** (`SETTING_PATH`) è la fonte di verità unica. Ogni generaz
    (`sorgente --tipo--> destinazione`) che confluiscono in `_relations.md`.
 4. **Campi segreti** marcati esplicitamente: non finiranno mai negli handout giocatori.
 5. **Bilingue:** termini di gioco coerenti col glossario IT↔EN.
+
+## Voce e stile
+Le schede generate (regioni, fazioni, divinità, PNG, mostri) passano per la skill
+**prose-style**: dettaglio concreto prima dell'aggettivo, ritmo vario, niente
+cliché. Applica il profilo voce personale dell'utente se presente
+(`node ${CLAUDE_PLUGIN_ROOT}/lib/bin/voice.js`).

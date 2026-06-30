@@ -28,3 +28,9 @@ conta e verifica (vedi `templates/adventure/SCHEMA.md`).
 Ogni scrittura è atomica, con `--dry-run` e policy di collisione. Esegui
 `validateAdventure` (via la lib) e mostra le discrepanze prima di considerare
 "pronta" un'avventura.
+
+## Voce e stile
+Per la prosa (strong start, descrizioni dei luoghi, voci dei PNG, flavor del loot)
+usa la skill **prose-style**: concretezza sensoriale, ritmo spezzato, niente
+frasi-spia, niente chiusura-riassunto. Se l'utente ha un profilo voce personale
+(`node ${CLAUDE_PLUGIN_ROOT}/lib/bin/voice.js` stampa qualcosa), applicalo.
