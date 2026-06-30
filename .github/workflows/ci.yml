@@ -22,6 +22,14 @@ jobs:
       - name: Test (lib)
         working-directory: lib
         run: npm test
+      - name: Install (render)
+        working-directory: render
+        run: npm install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      - name: Test (render)
+        working-directory: render
+        run: npm test
       - name: Denylist marchi
         run: node scripts/check-denylist.mjs
       - name: Secret scan (gitleaks)
