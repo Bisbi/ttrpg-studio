@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "table": "loot-nonitem",
+  "columns": {
+    "tipo": ["favore", "titolo", "informazione", "alleato", "accesso", "immunità"],
+    "esempio": [
+      "un debito di sangue riscuotibile una volta",
+      "un titolo onorifico riconosciuto in una regione",
+      "la posizione di un passaggio dimenticato",
+      "un contatto che apre una porta altrimenti chiusa",
+      "diritto di transito in un territorio ostile",
+      "perdono per un crimine passato"
+    ]
+  }
+}
