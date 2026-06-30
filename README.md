@@ -1,5 +1,7 @@
 # TTRPG Studio
 
+[![CI](https://github.com/Bisbi/ttrpg-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/Bisbi/ttrpg-studio/actions/workflows/ci.yml)
+
 **[English](#ttrpg-studio)** · **[Italiano](#ttrpg-studio-it)**
 
 Claude Code plugin to create and produce **5E-compatible** game material:

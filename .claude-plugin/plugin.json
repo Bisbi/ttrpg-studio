@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Worldbuilding e produzione di materiale 5E-compatible: avventure, carte, schermo del master, mappe, arte.",
   "license": "Apache-2.0",
+  "homepage": "https://github.com/Bisbi/ttrpg-studio",
   "keywords": ["ttrpg", "5e-compatible", "worldbuilding", "claude-code-plugin"],
   "mcpServers": {
     "compendium-reader": {
