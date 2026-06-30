@@ -22,4 +22,19 @@ per provarlo senza dati esterni:
 |-----|-------------|
 | `GAME_DATA_PATH` | cartella del tuo compendio (vedi `mcp/compendium-reader/schema/SCHEMA.md`) |
 | `GAME_DATA_LANG` | `it` o `en` (fallback per-campo `it→en`) |
+| `SETTING_PATH` | cartella della tua Setting Bible (worldbuilding) |
 | `TTRPG_DEBUG` | `1` per log di debug su stderr |
+
+## Worldbuilding
+
+Crea un'ambientazione e mantienila coerente:
+
+    SETTING_PATH=./setting   # cartella della tua Setting Bible
+
+- `/new-setting <nome>` — crea lo scheletro della Setting Bible.
+- `/gen-region`, `/gen-faction`, `/gen-deity`, `/gen-npc`, `/gen-monster` —
+  generano elementi coerenti col canon (input strutturati + seed table). Ogni
+  scrittura supporta `--dry-run` e una policy di collisione (`skip|overwrite|append|error`).
+- `/lore-check` — `lore-keeper` valida la coerenza semantica del canon.
+
+Le utility deterministiche stanno in `lib/` (Node ESM, testate con vitest).
