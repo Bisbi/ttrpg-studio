@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "title": "{{TITLE}}",
+  "slug": "{{SLUG}}",
+  "level_range": "1-3",
+  "strong_start": "",
+  "secrets_and_clues": [],
+  "fantastic_locations": [],
+  "npcs": [],
+  "monsters": [],
+  "encounters": [],
+  "hooks": [],
+  "consequences": [],
+  "reward_loot": { "items": [], "nonItem": [], "budget_by_level": {} }
+}
