@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    { "id": "muffa-cantante-homebrew", "name": { "it": "Muffa Cantante", "en": "Singing Mold" },
+      "source": "HomebrewExample", "type": "plant", "cr": "1/2", "hp": 22, "ac": 11,
+      "entries": [ { "type": "text", "text": { "it": "Emette un canto ipnotico.", "en": "Emits a hypnotic song." } } ] },
+    { "id": "guardiano-ottone-homebrew", "name": { "it": "Guardiano d'Ottone", "en": "Brass Sentinel" },
+      "source": "HomebrewExample", "type": "construct", "cr": "3", "hp": 45, "ac": 16 }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    { "id": "lampo-di-cenere-homebrew", "name": { "it": "Lampo di Cenere", "en": "Ash Flash" },
+      "source": "HomebrewExample", "level": 1, "school": "evocation",
+      "entries": [ { "type": "text", "text": { "it": "Un lampo di cenere acceca.", "en": "A flash of ash blinds." } } ] }
+  ]
+}

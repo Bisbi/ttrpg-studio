@@ -1,0 +1,1 @@
+{ "schema_version": "1.0", "files": { "monsters.json": "monster", "spells.json": "spell", "items.json": "item" } }

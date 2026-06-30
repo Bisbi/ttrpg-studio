@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    { "id": "tonico-cenere-homebrew", "name": { "it": "Tonico di Cenere", "en": "Ash Tonic" },
+      "source": "HomebrewExample", "rarity": "uncommon", "attunement": false,
+      "desc": { "it": "Cura e lascia un retrogusto di fumo.", "en": "Heals with a smoky aftertaste." } }
+  ]
+}
