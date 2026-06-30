@@ -1,0 +1,151 @@
+{
+  "$ref": "#/definitions/item",
+  "definitions": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "text"
+                  },
+                  "text": {
+                    "$ref": "#/definitions/item/properties/name"
+                  }
+                },
+                "required": [
+                  "type",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "list"
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/item/properties/entries/items"
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "items"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "table"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "headers",
+                  "rows"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "entries"
+                  },
+                  "name": {
+                    "$ref": "#/definitions/item/properties/name"
+                  },
+                  "entries": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/item/properties/entries/items"
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "entries"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "rarity": {
+          "type": "string"
+        },
+        "attunement": {
+          "type": "boolean"
+        },
+        "desc": {
+          "$ref": "#/definitions/item/properties/name"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "schema_version 1.0"
+}
