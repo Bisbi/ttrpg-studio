@@ -1,3 +1,11 @@
+# Code of Conduct / Codice di Condotta
+
+**Language / Lingua:** [English](#english) · [Italiano](#italiano)
+
+---
+
+<a name="english"></a>
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
@@ -123,6 +131,151 @@ Community Impact Guidelines were inspired by
 
 For answers to common questions about this code of conduct, see the FAQ at
 [https://www.contributor-covenant.org/faq][FAQ]. Translations are available at
+[https://www.contributor-covenant.org/translations][translations].
+
+[homepage]: https://www.contributor-covenant.org
+[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+[Mozilla CoC]: https://github.com/mozilla/diversity
+[FAQ]: https://www.contributor-covenant.org/faq
+[translations]: https://www.contributor-covenant.org/translations
+
+---
+
+<a name="italiano"></a>
+
+# Patto del Collaboratore (Codice di Condotta)
+
+## Il nostro impegno
+
+Noi, in qualità di membri, contributori e amministratori, ci impegniamo a
+rendere la partecipazione alla nostra comunità un'esperienza libera da molestie
+per tutti, indipendentemente da età, corporatura, disabilità visibili o
+invisibili, etnia, caratteristiche sessuali, identità ed espressione di genere,
+livello di esperienza, istruzione, condizione socio-economica, nazionalità,
+aspetto personale, razza, casta, colore della pelle, religione, identità o
+orientamento sessuale.
+
+Ci impegniamo ad agire e interagire in modi che contribuiscano a creare una
+comunità aperta, accogliente, diversificata, inclusiva e sana.
+
+## I nostri standard
+
+Esempi di comportamenti che contribuiscono a creare un ambiente positivo per la
+nostra comunità includono:
+
+* Dimostrare empatia e gentilezza nei confronti delle altre persone
+* Rispettare opinioni, punti di vista ed esperienze diverse
+* Dare e accettare con garbo feedback costruttivi
+* Assumersi la responsabilità e scusarsi con coloro che sono stati colpiti dai
+  nostri errori, imparando dall'esperienza
+* Concentrarsi su ciò che è meglio non solo per noi come individui, ma per
+  l'intera comunità
+
+Esempi di comportamenti inaccettabili includono:
+
+* L'uso di linguaggio o immagini sessualizzati, e attenzioni o avance sessuali
+  di qualsiasi tipo
+* Trolling, commenti offensivi o denigratori, e attacchi personali o politici
+* Molestie pubbliche o private
+* La pubblicazione di informazioni private altrui, come un indirizzo fisico o di
+  posta elettronica, senza un esplicito permesso
+* Altri comportamenti che potrebbero ragionevolmente essere considerati
+  inappropriati in un contesto professionale
+
+## Responsabilità di applicazione
+
+Gli amministratori della comunità sono responsabili di chiarire e far rispettare
+i nostri standard di comportamento accettabile e adotteranno azioni correttive
+appropriate ed eque in risposta a qualsiasi comportamento che ritengano
+inappropriato, minaccioso, offensivo o dannoso.
+
+Gli amministratori della comunità hanno il diritto e la responsabilità di
+rimuovere, modificare o rifiutare commenti, commit, codice, modifiche al wiki,
+issue e altri contributi non in linea con questo Codice di Condotta, e
+comunicheranno le ragioni delle decisioni di moderazione quando opportuno.
+
+## Ambito di applicazione
+
+Questo Codice di Condotta si applica in tutti gli spazi della comunità e si
+applica anche quando un individuo rappresenta ufficialmente la comunità in spazi
+pubblici. Esempi di rappresentanza della nostra comunità includono l'uso di un
+indirizzo email ufficiale, la pubblicazione tramite un account ufficiale sui
+social media, o l'agire come rappresentante designato a un evento online o
+offline.
+
+## Applicazione
+
+Casi di comportamento abusivo, molesto o altrimenti inaccettabile possono essere
+segnalati agli amministratori della comunità responsabili dell'applicazione
+all'indirizzo giovanni.bibbo@gmail.com.
+Tutte le segnalazioni saranno esaminate e investigate in modo tempestivo ed
+equo.
+
+Tutti gli amministratori della comunità sono tenuti a rispettare la privacy e la
+sicurezza di chi segnala un incidente.
+
+## Linee guida di applicazione
+
+Gli amministratori della comunità seguiranno queste Linee guida sull'impatto
+nella comunità per determinare le conseguenze di qualsiasi azione che ritengano
+in violazione di questo Codice di Condotta:
+
+### 1. Correzione
+
+**Impatto nella comunità**: Uso di linguaggio inappropriato o altro
+comportamento ritenuto non professionale o sgradito nella comunità.
+
+**Conseguenza**: Un avvertimento privato e scritto da parte degli amministratori
+della comunità, che fornisca chiarezza sulla natura della violazione e una
+spiegazione del perché il comportamento era inappropriato. Potrebbe essere
+richiesta una scusa pubblica.
+
+### 2. Avvertimento
+
+**Impatto nella comunità**: Una violazione attraverso un singolo incidente o una
+serie di azioni.
+
+**Conseguenza**: Un avvertimento con conseguenze in caso di comportamento
+continuato. Nessuna interazione con le persone coinvolte, inclusa l'interazione
+non richiesta con coloro che applicano il Codice di Condotta, per un periodo di
+tempo specificato. Questo include l'evitare interazioni negli spazi della
+comunità così come nei canali esterni come i social media. La violazione di
+questi termini può portare a un ban temporaneo o permanente.
+
+### 3. Ban temporaneo
+
+**Impatto nella comunità**: Una grave violazione degli standard della comunità,
+incluso un comportamento inappropriato sostenuto.
+
+**Conseguenza**: Un ban temporaneo da qualsiasi tipo di interazione o
+comunicazione pubblica con la comunità per un periodo di tempo specificato.
+Durante questo periodo non è consentita alcuna interazione pubblica o privata
+con le persone coinvolte, inclusa l'interazione non richiesta con coloro che
+applicano il Codice di Condotta. La violazione di questi termini può portare a
+un ban permanente.
+
+### 4. Ban permanente
+
+**Impatto nella comunità**: Dimostrare un modello di violazione degli standard
+della comunità, incluso un comportamento inappropriato sostenuto, molestie nei
+confronti di un individuo, o aggressione o denigrazione di categorie di
+individui.
+
+**Conseguenza**: Un ban permanente da qualsiasi tipo di interazione pubblica
+all'interno della comunità.
+
+## Attribuzione
+
+Questo Codice di Condotta è adattato dal [Contributor Covenant][homepage],
+versione 2.1, disponibile su
+[https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+
+Le Linee guida sull'impatto nella comunità sono state ispirate dalla
+[scala di applicazione del codice di condotta di Mozilla][Mozilla CoC].
+
+Per le risposte alle domande più comuni su questo codice di condotta, consulta
+le FAQ su [https://www.contributor-covenant.org/faq][FAQ]. Le traduzioni sono
+disponibili su
 [https://www.contributor-covenant.org/translations][translations].
 
 [homepage]: https://www.contributor-covenant.org

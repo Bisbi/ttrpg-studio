@@ -3,25 +3,45 @@
 TTRPG Studio
 Copyright 2026 Giobbo
 
+Code: Apache License 2.0 (see LICENSE).
+Content/assets: CC BY 4.0 (see LICENSE-CONTENT).
+
 Codice: Apache License 2.0 (vedi LICENSE).
 Contenuti/asset: CC BY 4.0 (vedi LICENSE-CONTENT).
 
-Questo progetto NON distribuisce contenuti di gioco coperti da copyright e non
-è affiliato né approvato da alcun editore.
+---
+
+## EN — Non-affiliation
+
+This project does NOT distribute copyrighted game content and is not affiliated
+with or endorsed by any publisher.
+
+## IT — Non-affiliazione
+
+Questo progetto NON distribuisce contenuti di gioco coperti da copyright e non è
+affiliato né approvato da alcun editore.
 
 ---
 
-## Uso di dati SRD (a cura dell'utente)
+## EN — Use of SRD data (user-provided)
 
-Se popoli la tua cartella dati con materiale tratto dal System Reference Document,
-sei tu responsabile dell'attribuzione richiesta dalla relativa licenza:
+If you populate your data folder with material from the System Reference
+Document, you are responsible for the attribution required by the relevant
+license.
 
-- SRD 5.1 — disponibile sotto CC BY 4.0:
+## IT — Uso di dati SRD (a cura dell'utente)
+
+Se popoli la tua cartella dati con materiale tratto dal System Reference
+Document, sei tu responsabile dell'attribuzione richiesta dalla relativa
+licenza:
+
+- SRD 5.1 — available under CC BY 4.0 / disponibile sotto CC BY 4.0:
   "This work includes material from the System Reference Document 5.1
    ... licensed under the Creative Commons Attribution 4.0 International License."
 
-- SRD 5.2 — disponibile sotto CC BY 4.0:
+- SRD 5.2 — available under CC BY 4.0 / disponibile sotto CC BY 4.0:
   "This work includes material from the System Reference Document 5.2
    ... licensed under the Creative Commons Attribution 4.0 International License."
 
-(Inserisci la stringa di attribuzione completa fornita dal documento che usi.)
+(EN) Insert the full attribution string provided by the document you use.
+(IT) Inserisci la stringa di attribuzione completa fornita dal documento che usi.

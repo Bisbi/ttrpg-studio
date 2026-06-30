@@ -1,5 +1,114 @@
 # TTRPG Studio
 
+**[English](#ttrpg-studio)** · **[Italiano](#ttrpg-studio-it)**
+
+Claude Code plugin to create and produce **5E-compatible** game material:
+worldbuilding, adventures, item cards, DM screen, maps and art.
+
+> Not affiliated with or endorsed by any publisher. It does not distribute game
+> content — it reads your data from a folder that you provide. See `DISCLAIMER.md`.
+
+## License
+Code: **Apache-2.0** (`LICENSE`). Content/assets: **CC BY 4.0** (`LICENSE-CONTENT`).
+
+## Quickstart (5 minutes)
+The plugin ships a small **homebrew** dataset in `examples/compendium-homebrew/`
+so you can try it without any external data:
+
+    GAME_DATA_PATH=./examples/compendium-homebrew GAME_DATA_LANG=en
+
+## Configuration
+| Env | Meaning |
+|-----|---------|
+| `GAME_DATA_PATH` | folder of your compendium (see `mcp/compendium-reader/schema/SCHEMA.md`) |
+| `GAME_DATA_LANG` | `it` or `en` (per-field fallback `it→en`) |
+| `SETTING_PATH` | folder of your Setting Bible (worldbuilding) |
+| `ADVENTURE_PATH` | folder of your adventures |
+| `OUTPUT_DIR` | where generated PNG/PDF files are written |
+| `IMAGE_API_URL` / `IMAGE_API_KEY` | art provider via API (recommended) |
+| `IMAGE_GEN_URL` | browser-based art provider (best-effort, fragile) |
+| `VOICE_PATH` | path to your local voice profile (otherwise `SETTING_PATH/voice-profile.md`) |
+| `TTRPG_DEBUG` | `1` for debug logs on stderr |
+
+## Worldbuilding
+
+Create a setting and keep it consistent:
+
+    SETTING_PATH=./setting   # folder of your Setting Bible
+
+- `/new-setting <name>` — creates the Setting Bible skeleton.
+- `/gen-region`, `/gen-faction`, `/gen-deity`, `/gen-npc`, `/gen-monster` —
+  generate elements consistent with the canon (structured inputs + seed tables).
+  Every write supports `--dry-run` and a collision policy
+  (`skip|overwrite|append|error`).
+- `/lore-check` — `lore-keeper` validates the semantic consistency of the canon.
+
+The deterministic utilities live in `lib/` (Node ESM, tested with vitest).
+
+## Adventures (table-ready)
+
+    ADVENTURE_PATH=./adventures   # folder of your adventures
+
+- `/new-adventure "<title>"` — creates an adventure as a **validated data
+  structure** (≥8 secrets, 3–5 sensory locations, ≥3 hooks, NPCs with a voice
+  and a secret).
+- `/encounter 3,3,3,4 hard` — party XP budget and encounter proposals from the
+  compendium (5E-compatible thresholds).
+- `/session-prep <slug>` — one-page sheet for the table (DM view).
+- `/roll <table>` — roll on a random table (plugin seed or the `80-tables/`
+  folder of the Setting Bible).
+
+Player handouts (player view) come with the production module.
+
+## Production (printable material)
+
+    OUTPUT_DIR=./output   # where generated PNG/PDF files end up
+
+- `/item-card` — item card PNG (800×1200) from a `reward_loot` entry.
+- `/dm-screen [--pdf]` — DM screen (1920×1080) from an adventure.
+- `/handout` — diegetic player handout (**player view**: secret fields are
+  removed automatically).
+
+HTML→PNG/PDF rendering uses **Playwright** (`render/` package). Install the
+browser once with `npx playwright install chromium`. The HTML composition layer
+lives in `lib/` (zero dependencies, tested); the renderer is isolated in
+`render/`.
+
+## Visuals (art and maps)
+
+Art provider (configure **one** of the two):
+
+    IMAGE_API_URL=...   IMAGE_API_KEY=...   # API provider (recommended)
+    IMAGE_GEN_URL=...                        # browser best-effort (fragile)
+
+- `/gen-art "<description>"` — 2:3 art for items, monsters, PCs, NPCs (not maps).
+  The browser provider shows a disclaimer about ToS and licenses on first use.
+- `/battle-map [--tier 1|2]` — Tier 1: procedural SVG line-art dungeon + grid
+  (deterministic, also exports JSON); Tier 2: a grid over scene art.
+
+Maps are zero-dependency (SVG generated in Node, grid in post); the PNG
+rasterization reuses the Playwright renderer in `render/`.
+
+## Voice and style
+
+The plugin writes creative prose in a **concrete and vivid** way, not generic
+(`prose-style` skill). You can give it **your own voice**:
+
+- `/voice-profile` — builds your voice profile from your own texts (guided
+  template).
+- The file lives in `SETTING_PATH/voice-profile.md` or in `VOICE_PATH`, is
+  **local and gitignored** (it never ends up in the repo). The creative skills
+  apply it if present.
+
+The plugin's style guide is **neutral**: the goal is human, concrete prose,
+not "evading AI detectors".
+
+---
+
+# TTRPG Studio (IT)
+
+**[English](#ttrpg-studio)** · **[Italiano](#ttrpg-studio-it)**
+
 Plugin Claude Code per creare e produrre materiale di gioco **compatibile con la
 Quinta Edizione (5E-compatible)**: worldbuilding, avventure, carte oggetto,
 schermo del master, mappe e arte.
@@ -23,6 +132,11 @@ per provarlo senza dati esterni:
 | `GAME_DATA_PATH` | cartella del tuo compendio (vedi `mcp/compendium-reader/schema/SCHEMA.md`) |
 | `GAME_DATA_LANG` | `it` o `en` (fallback per-campo `it→en`) |
 | `SETTING_PATH` | cartella della tua Setting Bible (worldbuilding) |
+| `ADVENTURE_PATH` | cartella delle tue avventure |
+| `OUTPUT_DIR` | dove finiscono i file PNG/PDF generati |
+| `IMAGE_API_URL` / `IMAGE_API_KEY` | provider arte via API (consigliato) |
+| `IMAGE_GEN_URL` | provider arte via browser (best-effort, fragile) |
+| `VOICE_PATH` | percorso del tuo profilo voce locale (altrimenti `SETTING_PATH/voice-profile.md`) |
 | `TTRPG_DEBUG` | `1` per log di debug su stderr |
 
 ## Worldbuilding
