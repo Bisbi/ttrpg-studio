@@ -13,6 +13,8 @@ GAME_DATA_PATH
 *.pdf
 output/
 generated-images/
+# JSON delle mappe da battaglia (anche fuori da output/)
+battle-map-*.json
 
 # Node
 node_modules/
