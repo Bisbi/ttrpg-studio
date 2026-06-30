@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "table": "region-seed",
+  "columns": {
+    "biomateria": ["paludi saline", "altopiani di cenere", "foreste sommerse", "deserto di vetro", "fiordi di basalto", "pianure di gesso"],
+    "risorsa": ["sale rituale", "legno cavo", "minerale cantante", "acqua dolce", "spezia narcotica", "ossa fossili"],
+    "minaccia": ["maree improvvise", "predoni nomadi", "muffa senziente", "crollo di gallerie", "nebbia che disorienta", "bestie migratorie"],
+    "meraviglia": ["un faro che non si spegne", "un ponte vivente", "una voragine che canta", "rovine galleggianti", "un albero-calendario", "una porta murata"]
+  }
+}

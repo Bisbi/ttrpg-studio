@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "table": "npc-seed",
+  "columns": {
+    "ruolo": ["mediatore", "contrabbandiere", "archivista", "guaritore", "esattore", "cartografo"],
+    "tic": ["conta gli oggetti", "non guarda negli occhi", "cita proverbi inventati", "tocca un amuleto", "ride a sproposito", "parla in terza persona"],
+    "vuole": ["riscattare un errore", "proteggere un segreto", "salire di rango", "ritrovare qualcuno", "saldare un debito", "fuggire lontano"],
+    "segreto": ["è una spia", "ha tradito un alleato", "deve un favore impagabile", "nasconde un'identità", "ha rubato una reliquia", "sa di una morte non naturale"]
+  }
+}
