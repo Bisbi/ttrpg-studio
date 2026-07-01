@@ -301,14 +301,14 @@ ttrpg-studio/
 │   ├── render/                   # HTML→PNG/PDF (zero dependencies, fully tested)
 │   └── seed-tables/              # Procedural generation tables
 ├── mcp/                          # Model Context Protocol modules
-│   ├── compendium-reader/        # Load your D&D compendium
+│   ├── compendium-reader/        # Load your 5E-compatible compendium
 │   ├── lore-keeper/              # Semantic consistency validation
 │   └── schema/                   # SCHEMA.md for compendium structure
 ├── render/                       # Playwright renderer (isolated from core)
 │   ├── browser/                  # Chromium setup
 │   └── compose/                  # HTML template composition
 ├── examples/
-│   └── compendium-homebrew/      # Sample D&D dataset (ready to use)
+│   └── compendium-homebrew/      # Sample 5E-compatible dataset (ready to use)
 ├── 80-tables/                    # Procedural generation seed tables
 ├── LICENSE                       # Apache-2.0 (code)
 ├── LICENSE-CONTENT              # CC BY 4.0 (content/assets)
@@ -391,7 +391,7 @@ TTRPG_DEBUG=1 /new-adventure "Debug Test"
 
 ### Important Disclaimer
 
-**Not affiliated with or endorsed by Wizards of the Coast, Paizo, or any game publisher.**
+**Not affiliated with, sponsored by, or endorsed by any game publisher or rights holder.**
 
 This plugin:
 - ✅ Does **not** distribute game content
@@ -739,14 +739,14 @@ ttrpg-studio/
 │   ├── render/                   # HTML→PNG/PDF (zero dipendenze, completamente testato)
 │   └── seed-tables/              # Tabelle generazione procedurale
 ├── mcp/                          # Moduli Model Context Protocol
-│   ├── compendium-reader/        # Carica il tuo compendio D&D
+│   ├── compendium-reader/        # Carica il tuo compendio 5E-compatible
 │   ├── lore-keeper/              # Validazione coerenza semantica
 │   └── schema/                   # SCHEMA.md per struttura compendio
 ├── render/                       # Renderer Playwright (isolato dal core)
 │   ├── browser/                  # Setup Chromium
 │   └── compose/                  # Composizione template HTML
 ├── examples/
-│   └── compendium-homebrew/      # Dataset D&D campione (pronto all'uso)
+│   └── compendium-homebrew/      # Dataset 5E-compatible campione (pronto all'uso)
 ├── 80-tables/                    # Seed table generazione procedurale
 ├── LICENSE                       # Apache-2.0 (codice)
 ├── LICENSE-CONTENT              # CC BY 4.0 (contenuti/asset)
@@ -829,7 +829,7 @@ TTRPG_DEBUG=1 /new-adventure "Test Debug"
 
 ### Avviso Importante
 
-**Non affiliato né approvato da Wizards of the Coast, Paizo, o alcun editore di giochi.**
+**Non affiliato, sponsorizzato o approvato da alcun editore di giochi o titolare di diritti.**
 
 Questo plugin:
 - ✅ **Non** distribuisce contenuti di gioco
