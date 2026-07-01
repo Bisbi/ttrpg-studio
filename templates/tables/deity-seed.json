@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "table": "deity-seed",
+  "source": "HomebrewExample",
   "columns": {
     "dominio": ["soglie", "raccolto e carestia", "patti e debiti", "maree", "memoria", "fuoco domestico"],
     "simbolo": ["chiave di osso", "covone capovolto", "bilancia incrinata", "conchiglia spezzata", "filo rosso", "braciere coperto"],

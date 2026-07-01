@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "table": "faction-seed",
+  "source": "HomebrewExample",
   "columns": {
     "movente": ["vendetta antica", "purezza dottrinale", "controllo di una risorsa", "sopravvivenza", "ascesa sociale", "conoscenza proibita"],
     "metodo": ["infiltrazione", "forza aperta", "corruzione economica", "rituale", "propaganda", "alleanze mutevoli"],

@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "table": "npc-seed",
+  "source": "HomebrewExample",
   "columns": {
     "ruolo": ["mediatore", "contrabbandiere", "archivista", "guaritore", "esattore", "cartografo"],
     "tic": ["conta gli oggetti", "non guarda negli occhi", "cita proverbi inventati", "tocca un amuleto", "ride a sproposito", "parla in terza persona"],

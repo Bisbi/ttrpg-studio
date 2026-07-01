@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "table": "loot-nonitem",
+  "source": "HomebrewExample",
   "columns": {
     "tipo": ["favore", "titolo", "informazione", "alleato", "accesso", "immunità"],
     "esempio": [
