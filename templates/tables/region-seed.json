@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0",
   "table": "region-seed",
+  "source": "HomebrewExample",
   "columns": {
     "biomateria": ["paludi saline", "altopiani di cenere", "foreste sommerse", "deserto di vetro", "fiordi di basalto", "pianure di gesso"],
     "risorsa": ["sale rituale", "legno cavo", "minerale cantante", "acqua dolce", "spezia narcotica", "ossa fossili"],
