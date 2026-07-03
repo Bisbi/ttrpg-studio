@@ -45,6 +45,14 @@ Per-field fallback: requested language → `en` → `it`.
 - `monster`: + `cr`, `hp`, `ac`, `type?`
 - `spell`: + `level` (0–9), `school?`
 - `item`: + `rarity?`, `attunement?`, `desc?`
+- `species`: + `size?`, `speed?`
+- `background`: + `originFeat?`, `abilityScores?`, `skills?`, `tools?`
+- `feat`: + `category?`, `prerequisite?`
+- `class`: + `hitDie?`, `subclass?`
+- `condition`: (common fields only)
+- `deity`: + `domain?`, `alignment?`
+- `npc`: + `role?`, `cr?`, `hp?`, `ac?`
+- `pc`: + `species`, `clazz`, `subclass?`, `level?`, `background?`, `originFeat?`, `conforms2024?`
 
 The formal JSON Schemas are in `monster.schema.json`, `spell.schema.json`, `item.schema.json`.
 
@@ -91,5 +99,13 @@ Fallback per-campo: lingua richiesta → `en` → `it`.
 - `monster`: + `cr`, `hp`, `ac`, `type?`
 - `spell`: + `level` (0–9), `school?`
 - `item`: + `rarity?`, `attunement?`, `desc?`
+- `species`: + `size?`, `speed?`
+- `background`: + `originFeat?`, `abilityScores?`, `skills?`, `tools?`
+- `feat`: + `category?`, `prerequisite?`
+- `class`: + `hitDie?`, `subclass?`
+- `condition`: (solo campi comuni)
+- `deity`: + `domain?`, `alignment?`
+- `npc`: + `role?`, `cr?`, `hp?`, `ac?`
+- `pc`: + `species`, `clazz`, `subclass?`, `level?`, `background?`, `originFeat?`, `conforms2024?`
 
 I JSON Schema formali sono in `monster.schema.json`, `spell.schema.json`, `item.schema.json`.
