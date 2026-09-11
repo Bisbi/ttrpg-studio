@@ -420,9 +420,22 @@ settings (`.claude/settings.local.json`, which is git-ignored — never to the t
 }
 ```
 
-With that in place, every turn that changes tracked files runs the trigger; when it prints something,
-the `wiki-guardian` agent reviews the diff and reports. Turns that changed nothing, or changed only
-tests and generated indexes, cost nothing extra.
+With that in place, every turn that changes tracked files runs the trigger and, when there is
+something worth looking at, prints the changed-file list as JSON. Turns that changed nothing, or
+changed only tests and generated indexes, print nothing and cost nothing extra.
+
+**The trigger does not start the guardian, and nothing else in this repository does either.** A `Stop`
+hook that exits 0 and writes to stdout reports a result; it does not spawn a subagent. So the trigger
+is a notification: it tells you a turn produced changes a wiki node could plausibly capture. Running
+the guardian on them is a second step you take yourself — invoke `agents/wiki-guardian.md` and give it
+the three inputs it expects:
+
+1. the changed-file list the trigger printed,
+2. `wiki/index.md` and `local/wiki/index.md`,
+3. the output of `node lib/bin/wiki.js stale --json`.
+
+Automatic invocation is not wired up. Treat the opt-in hook as the part that tells you when it is
+worth asking, and the asking as yours.
 
 ---
 
@@ -933,9 +946,22 @@ alle tue impostazioni locali (`.claude/settings.local.json`, che è gitignored �
 }
 ```
 
-Con questo in atto, ogni turno che cambia file tracciati esegue il trigger; quando stampa qualcosa,
-l'agente `wiki-guardian` esamina il diff e riferisce. I turni che non cambiano nulla, o cambiano solo
-test e index generati, non costano nulla in più.
+Con questo in atto, ogni turno che cambia file tracciati esegue il trigger e, quando c'è qualcosa che
+vale la pena guardare, stampa in JSON l'elenco dei file cambiati. I turni che non cambiano nulla, o
+cambiano solo test e index generati, non stampano niente e non costano nulla in più.
+
+**Il trigger non avvia il guardiano, e nient'altro nel repository lo fa.** Un hook `Stop` che esce 0 e
+scrive su stdout riporta un risultato; non genera un subagent. Il trigger è quindi una notifica: ti
+dice che un turno ha prodotto cambiamenti che un nodo wiki potrebbe plausibilmente catturare. Farci
+girare il guardiano è un secondo passo che compi tu — invoca `agents/wiki-guardian.md` e dagli i tre
+input che si aspetta:
+
+1. l'elenco dei file cambiati stampato dal trigger,
+2. `wiki/index.md` e `local/wiki/index.md`,
+3. l'output di `node lib/bin/wiki.js stale --json`.
+
+L'invocazione automatica non è collegata. L'hook opzionale è la parte che ti dice quando vale la pena
+chiedere; il chiedere resta tuo.
 
 ---
 
