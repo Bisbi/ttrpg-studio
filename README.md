@@ -375,11 +375,54 @@ Missing directories are not an error. Exit code is `1` when `validate` or `bound
 problems; `stale` never affects it.
 
 **Pre-commit hook:** `.githooks/pre-commit` runs validate, boundary, and the brand denylist check
-before every commit. Activate it once per clone:
+before every commit. It is not active by default — activating it is your decision:
 
 ```bash
 git config core.hooksPath .githooks
 ```
+
+### End-of-turn knowledge guardian (optional, not active by default)
+
+At the end of a turn, an agent can look at what just changed and say whether it produced knowledge
+worth writing down. `agents/wiki-guardian.md` defines that agent: given the changed files, the wiki
+indexes, and the stale-node list, it **proposes** wiki nodes to add or update, flags comments that
+break the project's rules, and points out anything under a public path that looks like personal use.
+It only has read-only tools (`Read`, `Glob`, `Grep`) — it can never write or edit a file.
+
+It only proposes on purpose. A guardian that rewrites the knowledge base on its own produces drift
+that nobody re-reads, and a wiki you trust wrongly is worse than no wiki at all — a human still has to
+read the proposal and decide.
+
+`scripts/guardian-trigger.mjs` guards the cost: run standalone, it exits with no output on a clean
+tree, and it also exits early — before anything model-backed runs — when the only files a turn changed
+are under `lib/test/` or are generated (`index.md`, `log.md`). It prints the changed-file list as JSON
+only when there is something a wiki node could plausibly capture.
+
+This is not wired up anywhere in the repository — no hook fires it automatically. That is deliberate:
+`.claude/settings.json` is tracked by this repository, so registering a `Stop` hook there would make it
+run for everyone who clones the project, spawning an extra model-backed agent at the end of every turn
+at their own expense. Enabling the guardian for yourself means adding a `Stop` hook to your own local
+settings (`.claude/settings.local.json`, which is git-ignored — never to the tracked
+`.claude/settings.json`):
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node scripts/guardian-trigger.mjs" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+With that in place, every turn that changes tracked files runs the trigger; when it prints something,
+the `wiki-guardian` agent reviews the diff and reports. Turns that changed nothing, or changed only
+tests and generated indexes, cost nothing extra.
 
 ---
 
@@ -844,11 +887,55 @@ che `local/wiki`. Le directory assenti non sono un errore. Il codice di uscita �
 `validate` o `boundary` segnalano problemi; `stale` non lo influenza mai.
 
 **Hook di pre-commit:** `.githooks/pre-commit` esegue validate, boundary e il controllo denylist
-marchi prima di ogni commit. Attivalo una volta per clone:
+marchi prima di ogni commit. Non è attivo di default — attivarlo è una tua decisione:
 
 ```bash
 git config core.hooksPath .githooks
 ```
+
+### Guardiano di conoscenza a fine turno (opzionale, non attivo di default)
+
+A fine turno, un agente può guardare cosa è appena cambiato e dire se ha prodotto conoscenza che vale
+la pena scrivere. `agents/wiki-guardian.md` definisce quell'agente: dati i file cambiati, gli index
+della wiki e la lista dei nodi stale, **propone** nodi wiki da aggiungere o aggiornare, segnala commenti
+che violano le regole del progetto, e indica qualsiasi cosa sotto un percorso pubblico che sembri uso
+personale. Ha solo strumenti in sola lettura (`Read`, `Glob`, `Grep`) — non può mai scrivere né
+modificare un file.
+
+Propone di proposito, e basta. Un guardiano che riscrive da sé la base di conoscenza produce una deriva
+che nessuno rilegge, e una wiki di cui ci si fida a torto è peggio di nessuna wiki — una persona deve
+comunque leggere la proposta e decidere.
+
+`scripts/guardian-trigger.mjs` protegge il costo: eseguito da solo, con working tree pulito esce senza
+output; ed esce presto — prima che scatti qualsiasi cosa model-backed — anche quando gli unici file
+cambiati in un turno sono sotto `lib/test/` o sono generati (`index.md`, `log.md`). Stampa l'elenco dei
+file cambiati in JSON solo quando c'è qualcosa che un nodo wiki potrebbe plausibilmente catturare.
+
+Questo non è collegato a nulla nel repository — nessun hook lo fa scattare automaticamente. È
+deliberato: `.claude/settings.json` è tracciato da questo repository, quindi registrare lì un hook
+`Stop` lo farebbe girare per chiunque clona il progetto, generando un agente model-backed extra a fine
+di ogni turno, a spese proprie. Attivare il guardiano per te stesso significa aggiungere un hook `Stop`
+alle tue impostazioni locali (`.claude/settings.local.json`, che è gitignored — mai al file tracciato
+`.claude/settings.json`):
+
+```json
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "node scripts/guardian-trigger.mjs" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Con questo in atto, ogni turno che cambia file tracciati esegue il trigger; quando stampa qualcosa,
+l'agente `wiki-guardian` esamina il diff e riferisce. I turni che non cambiano nulla, o cambiano solo
+test e index generati, non costano nulla in più.
 
 ---
 
