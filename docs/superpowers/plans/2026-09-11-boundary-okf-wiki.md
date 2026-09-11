@@ -66,7 +66,8 @@ node scripts/check-denylist.mjs                            # superficie pubblica
 - Create: `local/` (nuovo repo git, non versionato dal repo pubblico)
 - Copy: `lib/import/detag.js` → `local/import/detag.js`
 - Copy: `lib/import/convert.js` → `local/import/convert.js`
-- Copy: `scripts/import-5etools.mjs` → `local/import/import-compendium.mjs`
+- Copy: il vecchio script di import in `scripts/` (il cui nome conteneva quello del fornitore) →
+  `local/import/import-compendium.mjs`
 - Copy: `scripts/e2e-check.mjs` → `local/import/e2e-check.mjs`
 - Copy: `lib/test/detag.test.js` → `local/test/detag.test.js`
 - Copy: `lib/test/convert.test.js` → `local/test/convert.test.js`
@@ -99,7 +100,7 @@ riportare: la premessa del piano non vale più.
 New-Item -ItemType Directory -Force local\import, local\test
 Copy-Item lib\import\detag.js local\import\detag.js
 Copy-Item lib\import\convert.js local\import\convert.js
-Copy-Item scripts\import-5etools.mjs local\import\import-compendium.mjs
+Copy-Item scripts\<vecchio-script-di-import>.mjs local\import\import-compendium.mjs
 Copy-Item scripts\e2e-check.mjs local\import\e2e-check.mjs
 Copy-Item lib\test\detag.test.js local\test\detag.test.js
 Copy-Item lib\test\convert.test.js local\test\convert.test.js
@@ -264,9 +265,13 @@ righe descrivono lavoro che non è più in questo repository. Sostituirle con:
 
 - [ ] **Step 5: Dimostrare il buco prima di chiuderlo**
 
+Creare `lib/import/canary.js` contenente **un qualunque termine dell'array `DENY`** di
+`scripts/check-denylist.mjs` (il file stesso della denylist elenca i termini; qui non se ne
+trascrive nessuno, perché questo documento è a sua volta sottoposto alla scansione), aggiungerlo
+all'indice e lanciare il controllo:
+
 ```powershell
 New-Item -ItemType Directory -Force lib\import
-Set-Content -Encoding utf8 lib\import\canary.js 'export const x = "5etools";'
 git add lib/import/canary.js
 node scripts/check-denylist.mjs
 ```

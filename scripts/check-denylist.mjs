@@ -1,6 +1,10 @@
 // Fails when a forbidden term appears anywhere in the publishable surface.
 // Three exclusions are deliberate, and each one is narrow on purpose:
-//   - docs/        -> internal design documents, which legitimately discuss the wider landscape;
+//   - LEGACY       -> a closed list of documents written before the rule existed and already
+//                     published with these terms in them. They are grandfathered pending a cleanup
+//                     pass, NOT a standing exemption for the directory they happen to live in: any
+//                     document added from now on is scanned like everything else, and a new file
+//                     cannot join this list by being dropped next to them.
 //   - this script  -> it carries the forbidden terms as data;
 //   - lockfiles    -> third-party package names outside our control.
 // The scan reads file CONTENTS, not file NAMES: a file whose name carries a vendor name passes here
@@ -12,8 +16,17 @@ import { readFileSync } from "node:fs";
 const DENY = ["5etools", "d&d", "dungeons & dragons", "wizards of the coast", "xphb", "xdmg", "xmm"];
 
 const SELF = "scripts/check-denylist.mjs";
+const LEGACY = [
+  "docs/specs/2026-06-29-ttrpg-studio-plugin-design.md",
+  "docs/superpowers/plans/2026-06-29-ttrpg-studio-foundation.md",
+  "docs/superpowers/plans/2026-06-30-ttrpg-studio-adventure.md",
+  "docs/superpowers/plans/2026-06-30-ttrpg-studio-production.md",
+  "docs/superpowers/plans/2026-06-30-ttrpg-studio-visuals.md",
+  "docs/superpowers/plans/2026-06-30-ttrpg-studio-voice.md",
+  "docs/superpowers/plans/2026-06-30-ttrpg-studio-worldbuilding.md",
+];
 const isExcluded = (f) =>
-  f.startsWith("docs/") ||
+  LEGACY.includes(f) ||
   f === SELF ||
   f.endsWith("package-lock.json");
 

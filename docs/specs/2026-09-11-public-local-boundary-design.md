@@ -29,8 +29,8 @@ prima di scrivere codice.
 
 - **L'eccezione è un buco.** `isExcluded()` salta `lib/import/` e due script: quel codice non è
   sottoposto ad alcun controllo di superficie.
-- **La denylist legge i contenuti, non i nomi.** Il nome stesso di `scripts/import-5etools.mjs`
-  contiene il nome del fornitore ed è `git ls-files`-visibile: nessun controllo lo rileva.
+- **La denylist legge i contenuti, non i nomi.** Il nome stesso del vecchio script di import
+  conteneva il nome del fornitore ed è `git ls-files`-visibile: nessun controllo lo rileva.
 - **Nessuna verifica del confine.** Niente fallisce se un file che doveva restare locale viene
   committato.
 
