@@ -352,6 +352,37 @@ TTRPG_DEBUG=1 /new-adventure "Debug Test"
 
 ---
 
+## 🧠 Wiki tooling (OKF knowledge bundles)
+
+The project keeps durable engineering knowledge as OKF markdown nodes: public and
+versioned in `wiki/`, private and git-ignored in `local/wiki/`. `lib/bin/wiki.js`
+checks and maintains those bundles.
+
+```bash
+node lib/bin/wiki.js <validate|index|boundary|stale|all> [--dir <path>]... [--json]
+```
+
+- **`validate`** — checks required frontmatter fields and reports broken links.
+- **`index`** — regenerates each directory's `index.md` and appends to `log.md` when it changes.
+- **`boundary`** — checks that a node's declared `scope` (`public`/`local`) matches whether git
+  actually tracks the file, and that `local/` is covered by `.gitignore`.
+- **`stale`** — lists nodes whose `covers` paths changed more recently than the node itself
+  (informational only, never fails the run).
+- **`all`** — runs validate, boundary, index and stale together.
+
+`--dir` can be repeated to check specific directories; it defaults to both `wiki` and `local/wiki`.
+Missing directories are not an error. Exit code is `1` when `validate` or `boundary` report
+problems; `stale` never affects it.
+
+**Pre-commit hook:** `.githooks/pre-commit` runs validate, boundary, and the brand denylist check
+before every commit. Activate it once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+---
+
 ## ⚠️ Troubleshooting
 
 | Issue | Solution |
@@ -786,6 +817,37 @@ Imposta `TTRPG_DEBUG=1` per log dettagliati:
 
 ```bash
 TTRPG_DEBUG=1 /new-adventure "Test Debug"
+```
+
+---
+
+## 🧠 Strumenti Wiki (bundle di conoscenza OKF)
+
+Il progetto tiene la conoscenza tecnica durevole come nodi markdown OKF: pubblici e
+versionati in `wiki/`, privati e gitignored in `local/wiki/`. `lib/bin/wiki.js`
+controlla e mantiene questi bundle.
+
+```bash
+node lib/bin/wiki.js <validate|index|boundary|stale|all> [--dir <path>]... [--json]
+```
+
+- **`validate`** — controlla i campi frontmatter obbligatori e segnala i link rotti.
+- **`index`** — rigenera l'`index.md` di ogni directory e aggiunge una voce a `log.md` quando cambia.
+- **`boundary`** — controlla che lo `scope` dichiarato da un nodo (`public`/`local`) corrisponda a
+  se il file è effettivamente tracciato da git, e che `local/` sia coperta da `.gitignore`.
+- **`stale`** — elenca i nodi i cui percorsi in `covers` sono cambiati più di recente del nodo stesso
+  (solo informativo, non fa mai fallire l'esecuzione).
+- **`all`** — esegue validate, boundary, index e stale insieme.
+
+`--dir` può essere ripetuto per controllare directory specifiche; di default controlla sia `wiki`
+che `local/wiki`. Le directory assenti non sono un errore. Il codice di uscita è `1` quando
+`validate` o `boundary` segnalano problemi; `stale` non lo influenza mai.
+
+**Hook di pre-commit:** `.githooks/pre-commit` esegue validate, boundary e il controllo denylist
+marchi prima di ogni commit. Attivalo una volta per clone:
+
+```bash
+git config core.hooksPath .githooks
 ```
 
 ---

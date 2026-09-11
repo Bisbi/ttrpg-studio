@@ -32,6 +32,10 @@ jobs:
         run: npm test
       - name: Denylist marchi
         run: node scripts/check-denylist.mjs
+      - name: Wiki validate
+        run: node lib/bin/wiki.js validate --dir wiki
+      - name: Wiki boundary
+        run: node lib/bin/wiki.js boundary --dir wiki
       - name: Secret scan (gitleaks)
         if: matrix.os == 'ubuntu-latest'
         uses: gitleaks/gitleaks-action@v2

@@ -1,0 +1,5 @@
+#!/bin/sh
+node lib/bin/wiki.js validate || exit 1
+node lib/bin/wiki.js boundary || exit 1
+node scripts/check-denylist.mjs || exit 1
+node lib/bin/wiki.js stale
