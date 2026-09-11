@@ -1,8 +1,11 @@
-// Fallisce se trova marchi/termini vietati nella SUPERFICIE PUBBLICABILE.
-// Per decisione di progetto la scansione esclude:
-//   - docs/        → spec e piani interni che citano legittimamente il panorama;
-//   - questo script → contiene i termini come dati (denylist);
-//   - i lockfile    → nomi di pacchetti di terze parti fuori dal nostro controllo.
+// Fails when a forbidden term appears anywhere in the publishable surface.
+// Three exclusions are deliberate, and each one is narrow on purpose:
+//   - docs/        -> internal design documents, which legitimately discuss the wider landscape;
+//   - this script  -> it carries the forbidden terms as data;
+//   - lockfiles    -> third-party package names outside our control.
+// The scan reads file CONTENTS, not file NAMES: a file whose name carries a vendor name passes here
+// while still being visible through git. Names are a separate concern, handled by keeping such code
+// out of this repository entirely.
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 

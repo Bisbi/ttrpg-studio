@@ -20,7 +20,7 @@ beforeAll(() => {
   const base = mkdtempSync(join(tmpdir(), "compendium-"));
   rootA = join(base, "ref");
   rootB = join(base, "orig");
-  writeCompendium(rootA, [{ id: "goblin-xmm", name: { en: "Goblin" }, source: "XMM", cr: "1/4", hp: 7, ac: 15 }]);
+  writeCompendium(rootA, [{ id: "goblin-tbk", name: { en: "Goblin" }, source: "TBK", cr: "1/4", hp: 7, ac: 15 }]);
   writeCompendium(rootB, [{ id: "gober-duelune", name: { it: "Gober" }, source: "Duelune", cr: "1/2", hp: 10, ac: 12 }]);
 });
 
@@ -40,6 +40,6 @@ describe("reader multi-root", () => {
     const store = new CompendiumStore({ ...cfg, logger: silent });
     store.load();
     const ids = store.allOfType("monster").map((r) => r.id).sort();
-    expect(ids).toEqual(["gober-duelune", "goblin-xmm"]);
+    expect(ids).toEqual(["gober-duelune", "goblin-tbk"]);
   });
 });
