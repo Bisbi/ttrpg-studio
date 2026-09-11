@@ -5,7 +5,7 @@ description: Using an expression inside inline map braces makes the workflow fai
 scope: public
 covers: [.github/workflows/ci.yml]
 tags: [ci, yaml]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 Placing a workflow expression inside inline map braces produces a parse failure: the run ends in about

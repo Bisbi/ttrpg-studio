@@ -5,7 +5,7 @@ description: Two licences cover two different kinds of artefact in the same repo
 scope: public
 covers: [LICENSE, LICENSE-CONTENT, NOTICE]
 tags: [legal, publishing]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 Code falls under Apache-2.0 (`LICENSE`); templates, example data, and prose fall under CC-BY-4.0

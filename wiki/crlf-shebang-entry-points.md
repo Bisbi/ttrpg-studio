@@ -5,7 +5,7 @@ description: An entry point with a shebang and CRLF line endings fails under esb
 scope: public
 covers: [lib/bin/, .gitattributes]
 tags: [windows, tooling, tests]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 A file that starts with `#!/usr/bin/env node` and carries CRLF line endings is rejected by the esbuild

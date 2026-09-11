@@ -5,7 +5,7 @@ description: A nested private repository replaces inline markers for keeping per
 scope: public
 covers: [.gitignore, lib/wiki/boundary.js]
 tags: [architecture, publishing]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 ## Standard

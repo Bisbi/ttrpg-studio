@@ -5,7 +5,7 @@ description: The public surface says 5E-compatible and never names the game or i
 scope: public
 covers: [scripts/check-denylist.mjs, README.md, commands/, skills/, docs/]
 tags: [legal, publishing]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 No third-party trademark appears in code, file names, command names, or documentation. The only

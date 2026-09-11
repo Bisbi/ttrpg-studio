@@ -5,7 +5,7 @@ description: No "called by X" or "see Y" - cross-file knowledge belongs in a wik
 scope: public
 covers: [lib/, mcp/, render/]
 tags: [conventions]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 ## Standard

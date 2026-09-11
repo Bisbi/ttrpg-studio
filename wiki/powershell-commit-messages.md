@@ -5,7 +5,7 @@ description: Parentheses and newlines inside a commit message argument are parse
 scope: public
 covers: [.githooks/]
 tags: [windows, git]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 PowerShell 5.1 parses parentheses and newlines inside an unquoted argument as shell syntax, so a

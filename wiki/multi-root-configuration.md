@@ -5,7 +5,7 @@ description: GAME_DATA_PATH takes several folders separated by a semicolon, and 
 scope: public
 covers: [mcp/compendium-reader/lib/config.js, mcp/compendium-reader/lib/store.js]
 tags: [multi-root, config, mcp]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 1. `GAME_DATA_PATH` accepts several compendium folders separated by `;` — a semicolon, not a colon.

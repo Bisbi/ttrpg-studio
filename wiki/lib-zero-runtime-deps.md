@@ -5,7 +5,7 @@ description: lib/ has only vitest in devDependencies, and every deterministic fe
 scope: public
 covers: [lib/package.json, lib/]
 tags: [architecture]
-timestamp: 2026-09-11T12:00:00Z
+timestamp: 2026-09-11T17:34:00Z
 ---
 
 `lib/` holds the deterministic logic of the plugin and installs nothing at runtime. Browser automation
