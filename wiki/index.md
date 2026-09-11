@@ -2,6 +2,7 @@
 
 ## Gotcha
 
+- [A shallow checkout makes the secret scan step fail instead of skip](ci-shallow-clone-secret-scan.md) — Without full history, the secret scanner cannot resolve the pull request's commit range and the run fails with no secret ever having been checked.
 - [CRLF endings break vitest on shebang entry points](crlf-shebang-entry-points.md) — An entry point with a shebang and CRLF line endings fails under esbuild while node --check still passes.
 - [Multi-line commit messages break the PowerShell parser](powershell-commit-messages.md) — Parentheses and newlines inside a commit message argument are parsed as shell syntax.
 - [Workflow expressions inside an inline YAML map break the run](ci-inline-yaml-expressions.md) — Using an expression inside inline map braces makes the workflow fail in zero seconds with no useful message.
