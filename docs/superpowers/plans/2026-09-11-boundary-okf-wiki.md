@@ -1424,7 +1424,13 @@ export function runWiki(argv, env) {
   if (run("stale")) {
     const lastModified = (path) => {
       const out = git(["log", "-1", "--format=%cI", "--", path]).trim();
-      return out ? out.replace(/\+00:00$/, "Z") : null;
+      if (!out) return null;
+      // Git reports the committer date in whatever offset the machine is set to. Comparing that
+      // against a node's UTC timestamp as plain text is meaningless: an offset sign sorts below "Z"
+      // no matter which instant it denotes, so every comparison would come out the same way. The
+      // value is therefore re-expressed in UTC at second precision, matching how nodes are written.
+      const t = new Date(out);
+      return Number.isNaN(t.getTime()) ? null : t.toISOString().replace(/\.\d+Z$/, "Z");
     };
     const stale = findStale(nodes, lastModified);
     if (json) process.stdout.write(JSON.stringify(stale, null, 2) + "\n");
