@@ -5,10 +5,10 @@ import { join } from "node:path";
 import { validateConfig } from "../lib/config.js";
 
 describe("validateConfig", () => {
-  it("ritorna dataPath e lang con env valida", () => {
+  it("ritorna dataPaths e lang con env valida", () => {
     const dir = mkdtempSync(join(tmpdir(), "cr-"));
     const cfg = validateConfig({ GAME_DATA_PATH: dir, GAME_DATA_LANG: "en" });
-    expect(cfg.dataPath).toBe(dir);
+    expect(cfg.dataPaths).toEqual([dir]);
     expect(cfg.lang).toBe("en");
   });
 

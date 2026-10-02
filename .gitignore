@@ -4,6 +4,9 @@
 /adventures/
 GAME_DATA_PATH
 
+# Repo privato annidato: uso personale del plugin, mai versionato qui
+/local/
+
 # Voce personale (mai committare; quella sotto /setting/ è già coperta)
 voice-profile.md
 /voice/
